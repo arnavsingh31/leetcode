@@ -24,3 +24,28 @@ var sortedSquares = function(nums) {
     return nums.map(x => x * x).sort((a,b) => a - b )
 };
 
+// alternate solution through counting sort algorithm
+var sortedSquares = function(nums) {
+
+//squaring
+for(let i=0; i<nums.length; i++){
+    nums[i] = nums[i]*nums[i];
+  }
+  //sorting
+  var max = Math.max(...nums);
+  var temp_arr = new Array(max+1).fill(0);
+  var result_arr = new Array(nums.length);
+  
+  for(let i= 0; i<nums.length; i++){
+    temp_arr[nums[i]] += 1;
+  }
+  
+  for(let i=1; i<temp_arr.length;i++){
+    temp_arr[i] += temp_arr[i-1];  
+  }
+  
+  for(let i=0;i<nums.length;i++){
+    result_arr[temp_arr[nums[i]]-1] = nums[i];
+    temp_arr[nums[i]] -= 1;
+  }
+}
