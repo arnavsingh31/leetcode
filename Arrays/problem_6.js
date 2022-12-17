@@ -46,4 +46,27 @@ var removeElement = function(nums, val) {
   return nums.length - count;
 };
 
-// without extra array (pending...)
+// without extra array
+var removeElement = function(nums, val) {
+  var count = 0;
+  var len = nums.length;
+  for (let i=0; i<len; i++){
+    if (nums[i] === val && i !== len-1){
+      for(let j=i+1; j < len; j++){
+        if (nums[j] !== val){
+          let temp = nums[i];
+          nums[i] = nums[j];
+          nums[j] = temp;
+          break;
+        }
+      }
+    }
+  }
+  for (let i=0; i< len; i++){
+    if( nums[i] === val) {
+        nums[i] = 'R';
+        count += 1;
+    }
+  }
+  return len - count;
+};
