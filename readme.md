@@ -1,1 +1,1 @@
-Leetcode practice questions and solutions
+Leetcode practice questions and solutions in Javascript.
