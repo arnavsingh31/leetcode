@@ -1,5 +1,7 @@
 package main
 
+import "log"
+
 /*
    Question: Replace Elements with Greatest Element on Right Side
 
@@ -31,6 +33,11 @@ package main
  * @param {number[]} arr
  * @return {number[]}
  */
+func main() {
+	var res = replaceElements([]int{17, 18, 5, 4, 6, 1})
+	log.Printf("result:---------- %v", res)
+}
+
 func replaceElements(arr []int) []int {
 	arr_len := len(arr)
 
