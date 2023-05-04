@@ -4,7 +4,7 @@ import "log"
 
 func main() {
 
-	moveZeroesSameArray([]int{0, 1, 0, 3, 12})
+	moveZeroAlt([]int{0, 1, 0, 3, 12})
 }
 
 /*
@@ -49,4 +49,30 @@ func moveZeroesSameArray(arr []int) {
 	}
 
 	log.Printf("Modified array is----> %v", arr)
+}
+
+// alternative approach with single loop
+/*
+	[0,1,0,3,12]
+*/
+func moveZeroAlt(arr []int) {
+	mostLeftZero := -1
+
+	for i := 0; i < len(arr); i++ {
+		if arr[i] == 0 {
+			if mostLeftZero == -1 {
+				mostLeftZero = i
+			}
+			continue
+		}
+
+		if mostLeftZero == -1 {
+			continue
+		}
+
+		arr[mostLeftZero], arr[i] = arr[i], arr[mostLeftZero]
+		mostLeftZero++
+	}
+
+	log.Printf("Modified Array---------> %v", arr)
 }
