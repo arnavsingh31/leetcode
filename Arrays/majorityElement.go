@@ -1,9 +1,12 @@
 package main
 
-import "log"
+import (
+	"log"
+	"sort"
+)
 
 func main() {
-	res := majorityElement([]int{2, 2, 2, 1, 1, 1, 2, 3, 3, 3, 3, 3})
+	res := majorityElement([]int{2, 2, 2, 1, 1, 1, 2, 3, 2, 3, 2, 3})
 	log.Printf("majority element------>%d", res)
 }
 
@@ -26,4 +29,10 @@ func majorityElement(arr []int) int {
 	}
 
 	return majorElement
+}
+
+// using sorting approach.
+func majorityElement2(nums []int) int {
+	sort.Ints(nums)
+	return nums[len(nums)/2]
 }
